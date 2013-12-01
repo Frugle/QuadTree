@@ -24,26 +24,6 @@ struct Rect
 
 	bool Intersects(const Rect& r) const
 	{
-		/*
-		const float d1x = r.x - (x + w);
-		const float d1y = r.y - (y + h);
-
-		const float d2x = x - (r.x + r.w);
-		const float d2y = y - (r.y + r.h);
-
-		return d1x + d1y + d2x + d2y <= 0;
-		*/
-
-		//return (std::fabsf(x - r.x) * 2.0f <= (w + r.w)) &&
-        // (std::fabsf(y - r.y) * 2.0f <= (h + r.h));
-
-		/*
-		return !(r.x > x + w
-			|| r.x + r.w < x
-			|| r.y > y + h
-			|| r.y + r.h < y);
-		*/
-
 		const float interLeft   = std::max(std::min(x, x + w), std::min(r.x, r.x + r.w));
 		const float interTop    = std::max(std::min(y, y + h), std::min(r.y, r.y + r.h));
 		const float interRight  = std::min(std::max(x, x + w), std::max(r.x, r.x + r.w));
@@ -210,8 +190,6 @@ void AddRandomPoints(QuadTree& qt, QuadTree& qt2, unsigned int numberOfPoints)
 		}
 
 		qt2.Add(Point(x, y));
-
-		//std::cout << "Added Point(" << x << ", " << y << std::endl;
 	}
 
 
@@ -683,10 +661,6 @@ int main(int argc, char* argv[])
 		printf("\t");
 		printf("%10.3f", linearTime);
 
-		//std::stringstream ss;
-		//ss << qtTime << "\t" << linearTime;;
-		//std::cout << ss.str();
-
 		return 0;
 	}
 	else
@@ -713,10 +687,6 @@ int main(int argc, char* argv[])
 	delete qtLinear;
 	delete rt;
 	delete rw;
-
-	//std::cout << "Press ENTER to exit...";
-	//std::fflush(stdin);
-	//std::cin.get();
 
 	return 0;
 }
