@@ -13,6 +13,9 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="QuadTree.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B33DD667-067D-46EC-8D82-720689EAE740}</ProjectGuid>
     <RootNamespace>quadtree</RootNamespace>
